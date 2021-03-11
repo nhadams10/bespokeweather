@@ -1,0 +1,116 @@
+<div>
+  <div>
+    <h1>
+      Recommendation #<%= @the_recommendation.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/recommendations">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_recommendation/<%= @the_recommendation.id %>">
+          Delete recommendation
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_recommendation.user_id %>
+      </dd>
+
+      <dt>
+        Clothes
+      </dt>
+      <dd>
+        <%= @the_recommendation.clothes_id %>
+      </dd>
+
+      <dt>
+        Upper bound
+      </dt>
+      <dd>
+        <%= @the_recommendation.upper_bound %>
+      </dd>
+
+      <dt>
+        Lower bound
+      </dt>
+      <dd>
+        <%= @the_recommendation.lower_bound %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_recommendation.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_recommendation.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit recommendation
+    </h2>
+
+    <form action="/modify_recommendation/<%= @the_recommendation.id %>"  method="post" >
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_recommendation.user_id %>">
+      </div>
+
+      <div>
+        <label for="clothes_id_box">
+          Clothes
+        </label>
+
+        <input type="text" id="clothes_id_box" name="query_clothes_id" value="<%= @the_recommendation.clothes_id %>">
+      </div>
+
+      <div>
+        <label for="upper_bound_box">
+          Upper bound
+        </label>
+
+        <input type="text" id="upper_bound_box" name="query_upper_bound" value="<%= @the_recommendation.upper_bound %>">
+      </div>
+
+      <div>
+        <label for="lower_bound_box">
+          Lower bound
+        </label>
+
+        <input type="text" id="lower_bound_box" name="query_lower_bound" value="<%= @the_recommendation.lower_bound %>">
+      </div>
+
+      <button>
+        Update recommendation
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

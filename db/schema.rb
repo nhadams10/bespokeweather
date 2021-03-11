@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_11_231620) do
+ActiveRecord::Schema.define(version: 2021_03_11_231752) do
 
   create_table "clothes", force: :cascade do |t|
     t.string "article"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "recommendations", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "clothes_id"
+    t.integer "upper_bound"
+    t.integer "lower_bound"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
