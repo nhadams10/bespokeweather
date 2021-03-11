@@ -2,6 +2,25 @@ Rails.application.routes.draw do
 
 
 
+  # Routes for the Threshold resource:
+
+  # CREATE
+  post("/insert_threshold", { :controller => "thresholds", :action => "create" })
+          
+  # READ
+  get("/thresholds", { :controller => "thresholds", :action => "index" })
+  
+  get("/thresholds/:path_id", { :controller => "thresholds", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_threshold/:path_id", { :controller => "thresholds", :action => "update" })
+  
+  # DELETE
+  get("/delete_threshold/:path_id", { :controller => "thresholds", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the User account:
 
   # SIGN UP FORM

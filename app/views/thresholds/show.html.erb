@@ -1,0 +1,146 @@
+<div>
+  <div>
+    <h1>
+      Threshold #<%= @the_threshold.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/thresholds">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_threshold/<%= @the_threshold.id %>">
+          Delete threshold
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_threshold.user_id %>
+      </dd>
+
+      <dt>
+        Coldest
+      </dt>
+      <dd>
+        <%= @the_threshold.coldest %>
+      </dd>
+
+      <dt>
+        Cold
+      </dt>
+      <dd>
+        <%= @the_threshold.cold %>
+      </dd>
+
+      <dt>
+        Moderate
+      </dt>
+      <dd>
+        <%= @the_threshold.moderate %>
+      </dd>
+
+      <dt>
+        Warm
+      </dt>
+      <dd>
+        <%= @the_threshold.warm %>
+      </dd>
+
+      <dt>
+        Warmest
+      </dt>
+      <dd>
+        <%= @the_threshold.warmest %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_threshold.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_threshold.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit threshold
+    </h2>
+
+    <form action="/modify_threshold/<%= @the_threshold.id %>"  method="post" >
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_threshold.user_id %>">
+      </div>
+
+      <div>
+        <label for="coldest_box">
+          Coldest
+        </label>
+
+        <input type="text" id="coldest_box" name="query_coldest" value="<%= @the_threshold.coldest %>">
+      </div>
+
+      <div>
+        <label for="cold_box">
+          Cold
+        </label>
+
+        <input type="text" id="cold_box" name="query_cold" value="<%= @the_threshold.cold %>">
+      </div>
+
+      <div>
+        <label for="moderate_box">
+          Moderate
+        </label>
+
+        <input type="text" id="moderate_box" name="query_moderate" value="<%= @the_threshold.moderate %>">
+      </div>
+
+      <div>
+        <label for="warm_box">
+          Warm
+        </label>
+
+        <input type="text" id="warm_box" name="query_warm" value="<%= @the_threshold.warm %>">
+      </div>
+
+      <div>
+        <label for="warmest_box">
+          Warmest
+        </label>
+
+        <input type="text" id="warmest_box" name="query_warmest" value="<%= @the_threshold.warmest %>">
+      </div>
+
+      <button>
+        Update threshold
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

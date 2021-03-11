@@ -1,0 +1,166 @@
+<div>
+  <div>
+    <h1>
+      List of all thresholds
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new threshold
+    </h2>
+
+    <form action="/insert_threshold" method="post">
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id">
+      </div>
+
+      <div>
+        <label for="coldest_box">
+          Coldest
+        </label>
+
+        <input type="text" id="coldest_box" name="query_coldest">
+      </div>
+
+      <div>
+        <label for="cold_box">
+          Cold
+        </label>
+
+        <input type="text" id="cold_box" name="query_cold">
+      </div>
+
+      <div>
+        <label for="moderate_box">
+          Moderate
+        </label>
+
+        <input type="text" id="moderate_box" name="query_moderate">
+      </div>
+
+      <div>
+        <label for="warm_box">
+          Warm
+        </label>
+
+        <input type="text" id="warm_box" name="query_warm">
+      </div>
+
+      <div>
+        <label for="warmest_box">
+          Warmest
+        </label>
+
+        <input type="text" id="warmest_box" name="query_warmest">
+      </div>
+
+      <button>
+        Create threshold
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Coldest
+        </th>
+
+        <th>
+          Cold
+        </th>
+
+        <th>
+          Moderate
+        </th>
+
+        <th>
+          Warm
+        </th>
+
+        <th>
+          Warmest
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_thresholds.each do |a_threshold| %>
+      <tr>
+        <td>
+          <%= a_threshold.id %>
+        </td>
+
+        <td>
+          <%= a_threshold.user_id %>
+        </td>
+
+        <td>
+          <%= a_threshold.coldest %>
+        </td>
+
+        <td>
+          <%= a_threshold.cold %>
+        </td>
+
+        <td>
+          <%= a_threshold.moderate %>
+        </td>
+
+        <td>
+          <%= a_threshold.warm %>
+        </td>
+
+        <td>
+          <%= a_threshold.warmest %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_threshold.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_threshold.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/thresholds/<%= a_threshold.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
