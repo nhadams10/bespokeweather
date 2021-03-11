@@ -2,6 +2,25 @@ Rails.application.routes.draw do
 
 
 
+  # Routes for the Clothe resource:
+
+  # CREATE
+  post("/insert_clothe", { :controller => "clothes", :action => "create" })
+          
+  # READ
+  get("/clothes", { :controller => "clothes", :action => "index" })
+  
+  get("/clothes/:path_id", { :controller => "clothes", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_clothe/:path_id", { :controller => "clothes", :action => "update" })
+  
+  # DELETE
+  get("/delete_clothe/:path_id", { :controller => "clothes", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the Threshold resource:
 
   # CREATE

@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      List of all clothes
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new clothe
+    </h2>
+
+    <form action="/insert_clothe" method="post">
+      <div>
+        <label for="article_box">
+          Article
+        </label>
+
+        <input type="text" id="article_box" name="query_article">
+      </div>
+
+      <button>
+        Create clothe
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Article
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_clothes.each do |a_clothe| %>
+      <tr>
+        <td>
+          <%= a_clothe.id %>
+        </td>
+
+        <td>
+          <%= a_clothe.article %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_clothe.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_clothe.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/clothes/<%= a_clothe.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
