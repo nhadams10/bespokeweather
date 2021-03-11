@@ -12,4 +12,8 @@ class User < ApplicationRecord
   validates :email, :uniqueness => { :case_sensitive => false }
   validates :email, :presence => true
   has_secure_password
+
+  has_one(:thresholds, { :class_name => "Threshold", :foreign_key => "user_id", :dependent => :destroy })
+
+  has_many(:recommendations, { :class_name => "Recommendation", :foreign_key => "user_id", :dependent => :destroy })
 end
